@@ -1,9 +1,9 @@
-console.log('What is the capital of Peru?')  
-console.log('Lima!')
-console.log('Ready for next question?')
+const modal = document.querySelector('.modal');
 
-/*
-Challenge:
-1. Make the third console.log fire 3 seconds after 
-   the answer appears.
-*/
+setTimeout(function() {
+   showModal();
+}, 3000);
+
+function showModal() {
+   modal.style.display = 'block';
+}
