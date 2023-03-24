@@ -106,8 +106,8 @@ main{
 
 .modal-close-btn:hover,
 .modal-close-btn:active{
-    color: red;
-    cursor: pointer;
+    color: red !important;
+    cursor: pointer !important;
 }
 
 .modal-close-btn:disabled{
@@ -153,4 +153,30 @@ input{
     height: 140px;
     line-height: 23px;
     margin-bottom: 0;
+}
+
+.modal-choice-btns{
+    margin-top: 10px;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.reverse{
+    flex-direction: row-reverse;
+}
+
+.modal-btn{
+    padding: 10px 24px;
+    cursor: pointer;
+}
+
+.modal-display-name{
+    color: fuchsia;
+}
+
+.modal-close-btn:disabled{
+    color: whitesmoke;
+    opacity: 0.2;
+    cursor: not-allowed;
 }
