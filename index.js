@@ -5,21 +5,32 @@ const modalText = document.querySelector('#modal-text');
 const modalInner = document.querySelector('#modal-inner');
 const modalBtns = document.querySelector('.modal-choice-btns');
 const declineBtn = document.querySelector('.decline');
+const closeModal = document.querySelector('.close-modal-btn-container');
 
-setTimeout(function() {
+setTimeout(function () {
    modal.style.display = 'block';
 }, 3000);
 
-closeBtn.addEventListener("click", function() {
+closeBtn.addEventListener("click", function () {
    modal.style.display = 'none';
 })
 
+function handleMouseEnter() {
+   let right = closeBtn.style.right;
+   if (right == '0px') {
+      closeBtn.style.right = '90%';
+   } else {
+      closeBtn.style.right = '0px';
+   }
+}
 
-declineBtn.addEventListener('mouseenter', function(){
+closeBtn.addEventListener("mouseenter", handleMouseEnter);
+
+declineBtn.addEventListener('mouseenter', function () {
    modalBtns.classList.toggle('reverse');
 })
 
-modalForm.addEventListener('submit', function(e){
+modalForm.addEventListener('submit', function (e) {
    e.preventDefault();
    const modalFormData = new FormData(modalForm);
    console.log(modalFormData);
@@ -30,17 +41,17 @@ modalForm.addEventListener('submit', function(e){
                                  Uploading your data to the dark web...
                               </p>
                            </div>`;
-   setTimeout(function() {
+   setTimeout(function () {
       document.querySelector('#uploadText').innerText = `Making the sale...`;
    }, 2500);
-   setTimeout(function(){
+   setTimeout(function () {
       modalInner.innerHTML = `<h2>Thanks <span class='modal-display-name'>${userName}</span>, you sucker! </h2>
                               <p>We just sold the rights to your eternal soul.</p>
                               <div class="idiot-gif">
                                  <img src="images/pirate.gif">
                               </div>
                               `
-      closeBtn.disabled = false;
+      closeBtn.removeEventListener('mouseenter', handleMouseEnter);
    }, 5000);
 })
 
